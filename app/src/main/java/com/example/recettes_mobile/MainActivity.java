@@ -1,54 +1,67 @@
 package com.example.recettes_mobile;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recettes_mobile.Adapters.RandomRecipeAdapter;
 import com.example.recettes_mobile.Listeners.RandomRecipeResponseListener;
 import com.example.recettes_mobile.Modeles.RandomRecipeApiRespondes;
+import com.example.recettes_mobile.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
-    ProgressDialog dialog;
-    RequestManager manager;
-    RandomRecipeAdapter randomRecipeAdapter;
-    RecyclerView recyclerView;
 
+    ActivityMainBinding binding;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragement(new RecipesFragment());
+        binding.bottomNavigationView.setBackground(null);
 
-        dialog = new ProgressDialog(this);
-        dialog.setTitle("Loading...");
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
-        manager = new RequestManager(this);
-        manager.getRandomRecipes(randomRecipeResponseListener);
-        dialog.show();
+            int id = item.getItemId();
+            if(id == R.id.recipes)
+            {
+                replaceFragement(new RecipesFragment());
+            } else if (id == R.id.recherche) {
+                replaceFragement(new SearchFragment());
+            }else if (id == R.id.favorite) {
+                replaceFragement(new FavoritesFragment());
+            } else if (id==R.id.profile) {
+                replaceFragement(new ProfileFragment());
+            }
+            return true;
+        });
+
+
     }
 
-    private final RandomRecipeResponseListener randomRecipeResponseListener = new RandomRecipeResponseListener() {
-        @Override
-        public void didFetch(RandomRecipeApiRespondes response, String message) {
-            dialog.dismiss();
-            recyclerView = findViewById(R.id.recycle_random);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,1));
-            randomRecipeAdapter =new RandomRecipeAdapter(MainActivity.this,response.recipes);
-            recyclerView.setAdapter(randomRecipeAdapter);
-        }
-
-        @Override
-        public void dedError(String message) {
-            Toast.makeText(MainActivity.this,message,Toast.LENGTH_SHORT);
-        }
-    };
+    private void replaceFragement(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.navHostFragement,fragment);
+        fragmentTransaction.commit();
+    }
 }

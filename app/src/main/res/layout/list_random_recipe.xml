@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <ImageView
-                    android:src="@drawable/ic_like"
+                    android:src="@drawable/ic_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
