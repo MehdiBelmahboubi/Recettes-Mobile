@@ -50,12 +50,10 @@ public class MainActivity extends AppCompatActivity {
             }else if (id == R.id.favorite) {
                 replaceFragement(new FavoritesFragment());
             } else if (id==R.id.profile) {
-                replaceFragement(new ProfileFragment());
+                replaceFragement(new ConnectionFragment());
             }
             return true;
         });
-
-
     }
 
     private void replaceFragement(Fragment fragment){
