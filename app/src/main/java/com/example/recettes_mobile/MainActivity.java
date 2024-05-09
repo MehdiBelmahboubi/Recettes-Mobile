@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragement(new RecipesFragment());
             } else if (id == R.id.recherche) {
                 replaceFragement(new SearchFragment());
-            }else if (id == R.id.favorite) {
+            }else if (id == R.id.Recettes_Users) {
                 replaceFragement(new FavoritesFragment());
             } else if (id==R.id.profile) {
                 replaceFragement(new ConnectionFragment());

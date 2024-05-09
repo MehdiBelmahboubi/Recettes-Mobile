@@ -12,12 +12,7 @@
         android:id="@+id/liner_ll"
         android:orientation="horizontal">
 
-    <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_arrow_back"
-            android:layout_alignParentLeft="true"/>
-    <TextView
+        <TextView
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -225,26 +220,38 @@
     </View>
 
     <LinearLayout
+        android:id="@+id/liner_ll4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="510dp"
         android:gravity="center"
-        android:id="@+id/liner_ll4">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:background="@drawable/bg_btn"
+            android:drawableLeft="@drawable/ic_edit"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="16dp"
             android:text="Edit Profile"
             android:textColor="#429E58"
-            android:gravity="center"
-            android:textSize="18dp"
-            android:drawableLeft="@drawable/ic_edit"
-            android:paddingLeft="16dp">
+            android:textSize="18dp">
+        </TextView>
 
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_btn"
+            android:drawableLeft="@drawable/ic_menu_book"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:text="Mes Recettes"
+            android:textColor="#429E58"
+            android:textSize="18dp">
         </TextView>
 
     </LinearLayout>
 
-    </RelativeLayout>
+</RelativeLayout>
