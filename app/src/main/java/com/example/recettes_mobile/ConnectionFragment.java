@@ -1,6 +1,9 @@
 package com.example.recettes_mobile;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 public class ConnectionFragment extends Fragment {
     TextView textViewRegistre,textViewUser,textViewPasswd;
     Button btnCnx;
+    int connectedUserId = -1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,10 +44,17 @@ public class ConnectionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(v.getContext());
-                if(myDB.ConnectUser(textViewUser.getText().toString().trim(),textViewPasswd.getText().toString().trim())==true){
-                    replaceFragement(new ProfileFragment());
-                }
-                else {
+                connectedUserId = myDB.ConnectUser(textViewUser.getText().toString().trim(),textViewPasswd.getText().toString().trim());
+                if(connectedUserId>0){
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("userId", connectedUserId);
+                    ProfileFragment profileFragment = new ProfileFragment();
+                    profileFragment.setArguments(bundle);
+                    replaceFragement(profileFragment);
+                    Intent intent = new Intent(getActivity(),MainActivity.class);
+                    intent.putExtra("userId",connectedUserId);
+                    startActivity(intent);
+                } else {
                     Toast.makeText(getContext(),"Authentification Error!!!",Toast.LENGTH_SHORT).show();
                 }
             }
@@ -62,4 +73,6 @@ public class ConnectionFragment extends Fragment {
         fragmentTransaction.replace(R.id.navHostFragement,fragment);
         fragmentTransaction.commit();
     }
+
+
 }

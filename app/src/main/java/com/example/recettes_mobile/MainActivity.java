@@ -2,6 +2,7 @@ package com.example.recettes_mobile;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,8 +37,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragement(new RecipesFragment());
+        replaceFragement(new FavoritesFragment());
         binding.bottomNavigationView.setBackground(null);
+
+        int connectedUserId=0;
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            connectedUserId = extras.getInt("userId");
+        }
+        int connectUserId = connectedUserId;
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
@@ -50,7 +58,15 @@ public class MainActivity extends AppCompatActivity {
             }else if (id == R.id.Recettes_Users) {
                 replaceFragement(new FavoritesFragment());
             } else if (id==R.id.profile) {
-                replaceFragement(new ConnectionFragment());
+                if (connectUserId > 0) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("userId", connectUserId);
+                    ProfileFragment profileFragment = new ProfileFragment();
+                    profileFragment.setArguments(bundle);
+                    replaceFragement(profileFragment);
+                } else {
+                    replaceFragement(new ConnectionFragment());
+                }
             }
             return true;
         });
@@ -62,4 +78,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.navHostFragement,fragment);
         fragmentTransaction.commit();
     }
+
 }

@@ -56,9 +56,9 @@
         android:layout_alignParentLeft="true"/>
 
         <TextView
+            android:id="@+id/userTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test test"
             android:textColor="#429E58"
             android:layout_marginTop="8dp"
             android:textStyle="bold"
@@ -102,13 +102,13 @@
         </TextView>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/usernameText"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:text="test test"
-            android:textStyle="bold"
+            android:layout_marginLeft="25dp"
             android:textColor="#6C6F6D"
             android:textSize="18dp"
-            android:layout_marginLeft="25dp">
+            android:textStyle="bold">
 
         </TextView>
 
@@ -150,97 +150,51 @@
         </TextView>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/UserEmail"
+            android:layout_width="244dp"
             android:layout_height="wrap_content"
-            android:text="test@email.com"
-            android:textStyle="bold"
+            android:layout_marginLeft="67dp"
             android:textColor="#6C6F6D"
             android:textSize="18dp"
-            android:layout_marginLeft="67dp">
-
+            android:textStyle="bold">
         </TextView>
 
     </LinearLayout>
 
     <View
+        android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="0.6dp"
-        android:background="@android:color/darker_gray"
+        android:layout_below="@id/liner_ll2"
         android:layout_marginTop="15dp"
-        android:layout_below="@id/liner_ll2">
-
-    </View>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="390dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:id="@+id/liner_ll3"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:layout_width="27dp"
-            android:layout_height="27dp"
-            android:src="@drawable/ic_lock" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:layout_marginLeft="9dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="............"
-            android:textStyle="bold"
-            android:textColor="#6C6F6D"
-            android:textSize="18dp"
-            android:layout_marginLeft="28dp">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.7dp"
-        android:background="@android:color/darker_gray"
-        android:layout_marginTop="13dp"
-        android:layout_below="@id/liner_ll3">
+        android:background="@android:color/darker_gray">
 
     </View>
 
     <LinearLayout
         android:id="@+id/liner_ll4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
+        android:layout_height="251dp"
+        android:layout_below="@+id/liner_ll2"
+        android:layout_marginTop="13dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/editText"
             android:layout_width="180dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/bg_btn"
             android:drawableLeft="@drawable/ic_edit"
             android:gravity="center"
-            android:layout_marginBottom="16dp"
             android:paddingLeft="16dp"
             android:text="Edit Profile"
             android:textColor="#429E58"
-            android:textSize="18dp">
-        </TextView>
+            android:textSize="18dp"></TextView>
 
         <TextView
+            android:id="@+id/RecettesText"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:background="@drawable/bg_btn"
@@ -249,8 +203,7 @@
             android:paddingLeft="16dp"
             android:text="Mes Recettes"
             android:textColor="#429E58"
-            android:textSize="18dp">
-        </TextView>
+            android:textSize="18dp"></TextView>
 
     </LinearLayout>
 

@@ -16,62 +16,56 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Paramètres"
+            android:text="Edit Profile"
             android:textSize="16dp"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:textColor="#429E58"
-            android:layout_alignParentRight="true"
-            android:textStyle="normal"
-            android:textSize="15dp" />
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#429E58"
         android:layout_below="@id/liner_ll"
-        android:paddingRight="8dp"
-        android:paddingLeft="8dp"/>
+        android:background="#429E58"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="69dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingTop="15dp"
-        android:layout_marginTop="70dp">
+        android:paddingTop="15dp">
 
         <ImageView
             android:layout_width="115dp"
             android:layout_height="115dp"
-            android:src="@drawable/avatar"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/avatar" />
 
         <TextView
+            android:id="@+id/usernameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="test test"
             android:textColor="#429E58"
-            android:layout_marginTop="8dp"
-            android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1.3dp"
-            android:background="#429E58"
             android:layout_below="@id/liner_ll"
             android:layout_marginTop="20dp"
-            android:paddingRight="8dp"
-            android:paddingLeft="8dp"/>
+            android:background="#429E58"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp" />
 
     </LinearLayout>
 
@@ -86,30 +80,29 @@
         android:gravity="center_vertical">
 
         <ImageView
-            android:layout_width="30dp"
+            android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:src="@drawable/ic_person"/>
+            android:src="@drawable/ic_person" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="Nom d'utilisateur"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:layout_marginLeft="5dp">
+            android:textStyle="bold">
 
         </TextView>
 
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/usernameEditText"
+            android:layout_width="205dp"
             android:layout_height="wrap_content"
-            android:text="test test"
-            android:textStyle="bold"
+            android:layout_marginLeft="12dp"
             android:textColor="#6C6F6D"
             android:textSize="18dp"
-            android:layout_marginLeft="25dp">
-
+            android:textStyle="bold">
         </EditText>
 
     </LinearLayout>
@@ -150,14 +143,13 @@
         </TextView>
 
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/emailEditText"
+            android:layout_width="199dp"
             android:layout_height="wrap_content"
-            android:text="test@email.com"
-            android:textStyle="bold"
+            android:layout_marginLeft="108dp"
             android:textColor="#6C6F6D"
             android:textSize="18dp"
-            android:layout_marginLeft="127dp">
-
+            android:textStyle="bold">
         </EditText>
 
     </LinearLayout>
@@ -198,14 +190,13 @@
         </TextView>
 
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/passwordEditText"
+            android:layout_width="197dp"
             android:layout_height="wrap_content"
-            android:text="............"
-            android:textStyle="bold"
+            android:layout_marginLeft="39dp"
             android:textColor="#6C6F6D"
             android:textSize="18dp"
-            android:layout_marginLeft="57dp">
-
+            android:textStyle="bold">
         </EditText>
 
 
@@ -247,16 +238,15 @@
 
     </TextView>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="............"
-        android:textStyle="bold"
-        android:textColor="#6C6F6D"
-        android:textSize="18dp"
-        android:layout_marginLeft="57dp">
-
-    </EditText>
+        <EditText
+            android:id="@+id/repasswordEditText"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="39dp"
+            android:textColor="#6C6F6D"
+            android:textSize="18dp"
+            android:textStyle="bold">
+        </EditText>
 
     </LinearLayout>
 
@@ -282,6 +272,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/modifierButton"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:background="@drawable/bg_btn"
