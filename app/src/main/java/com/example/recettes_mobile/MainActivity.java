@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragement(new FavoritesFragment());
+        replaceFragement(new RecipesFragment());
         binding.bottomNavigationView.setBackground(null);
 
         int connectedUserId=0;
