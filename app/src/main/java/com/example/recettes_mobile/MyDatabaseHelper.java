@@ -15,7 +15,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "Recettes.db";
     private static final int DATABASE_VERSION = 2;
-
     private static final String TABLE_User = "User";
     public static final String User_ID = "_id";
     public static final String User_NAME = "user_name";
@@ -28,6 +27,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String Recette_Description = "recette_description";
     public static final String Recette_PERSONNES = "recette_personnes";
     public static final String Recette_TIMES = "recette_times";
+    public static final String Recette_Image = "recette_image";
+    public static final String Recette_Ingrediants = "recette_ingrediants";
+    public static final String Recette_Etape = "recette_etape";
     public static final String Recette_User_ID = "user_id";
 
     public MyDatabaseHelper(@Nullable Context context) {
@@ -49,6 +51,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 Recette_Description + " TEXT, " +
                 Recette_PERSONNES + " INTEGER, " +
                 Recette_TIMES + " TEXT, " +
+                Recette_Image + " BLOB, " +
+                Recette_Ingrediants + " TEXT, " +
+                Recette_Etape + " TEXT, " +
                 Recette_User_ID + " INTEGER, " +
                 "FOREIGN KEY(" + Recette_User_ID + ") REFERENCES " + TABLE_User + "(" + User_ID + "));";
 
@@ -58,8 +63,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_User);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_Recettes);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_User + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_Recettes + ";");
         onCreate(db);
     }
 
@@ -150,7 +155,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
-    void AddRecette(String title, String description, int personnes, String times, int userId) {
+    void AddRecette(String title, String description, int personnes, String times,String ingrediants,String etape, int userId, byte[] image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -158,6 +163,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(Recette_Description, description);
         cv.put(Recette_PERSONNES, personnes);
         cv.put(Recette_TIMES, times);
+        cv.put(Recette_Image, image);
+        cv.put(Recette_Ingrediants, ingrediants);
+        cv.put(Recette_Etape, etape);
         cv.put(Recette_User_ID, userId);
         long result = db.insert(TABLE_Recettes, null, cv);
         if (result == -1) {
@@ -167,13 +175,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void UpdateRecette(int recetteId, String title, String description, int personnes, String times) {
+    void UpdateRecette(int recetteId, String title, String description, int personnes, String times, byte[] image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Recette_Title, title);
         values.put(Recette_Description, description);
         values.put(Recette_PERSONNES, personnes);
         values.put(Recette_TIMES, times);
+        values.put(Recette_Image, image);
         int result = db.update(TABLE_Recettes, values, Recette_ID + " = ?", new String[]{String.valueOf(recetteId)});
         db.close();
         if (result > 0) {
@@ -182,6 +191,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Failed to Update Recette", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     public Cursor getRecettesByUserId(int userId) {
         SQLiteDatabase db = this.getReadableDatabase();
