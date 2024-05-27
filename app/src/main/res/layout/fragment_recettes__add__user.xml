@@ -29,15 +29,6 @@
             android:scaleType="centerCrop"
             android:contentDescription="Photo de la recette"/>
 
-        <Button
-            android:id="@+id/buttonImporterPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Choisir une photo"
-            android:backgroundTint="#429E58"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp"/>
-
         <TextView
             android:id="@+id/TextTitreRecette"
             android:layout_width="wrap_content"
@@ -66,6 +57,40 @@
 
         <EditText
             android:id="@+id/editTextDescriptionRecette"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez la description de la recette"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/TextTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temps Preparation"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextTimes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez la description de la recette"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/TextPersonne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre de Personnes"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextPersonne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Entrez la description de la recette"

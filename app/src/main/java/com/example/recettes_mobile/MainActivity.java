@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (id == R.id.recherche) {
                 replaceFragement(new SearchFragment());
             }else if (id == R.id.Recettes_Users) {
-                replaceFragement(new FavoritesFragment());
+                replaceFragement(new RecipesFragment());
             } else if (id==R.id.profile) {
                 if (connectUserId > 0) {
                     Bundle bundle = new Bundle();

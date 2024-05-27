@@ -59,7 +59,11 @@ public class ProfileFragment extends Fragment {
         RecettesText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragement(new RecettesUserFragment());
+                Bundle bundle = new Bundle();
+                bundle.putInt("userId", connectedUserId);
+                RecettesUserFragment recettesUserFragment = new RecettesUserFragment();
+                recettesUserFragment.setArguments(bundle);
+                replaceFragement(recettesUserFragment);
             }
         });
     }
