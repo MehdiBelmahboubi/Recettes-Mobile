@@ -1,14 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Modeles.RecettesPageFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    android:id="@+id/random_list_container2"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="8dp">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/Title2"
+            android:text="titre"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:textStyle="bold"
+            android:textColor="@color/Green"
+            android:textSize="22sp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/image_food2"
+            android:scaleType="centerCrop"
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:src="@drawable/ic_serving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/text_serving2"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:text="Personne"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:src="@drawable/ic_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/text_likes2"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:text="Favorite"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:src="@drawable/ic_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/text_time2"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:text="Temps"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-</FrameLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="#429E58"
+            android:padding="15px"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/Description2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:padding="15px"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/Ingrédients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingrédients"
+            android:textColor="#429E58"
+            android:padding="15px"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/Ingrédients2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15px"
+            android:hint="Ingrédients"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/Etapepréparation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Etape de préparation"
+            android:padding="15px"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/Etapepréparation2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Etape de préparation"
+            android:padding="15px"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <Button
+            android:id="@+id/Modifier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Modifier"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingEnd="80px"
+            android:backgroundTint="#429E58"
+            android:textColor="#FFFFFF"/>
+        <Button
+            android:id="@+id/Supprimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Supprimer"
+            android:layout_gravity="center"
+            android:paddingEnd="50px"
+            android:backgroundTint="#429E58"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/...."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15px"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
