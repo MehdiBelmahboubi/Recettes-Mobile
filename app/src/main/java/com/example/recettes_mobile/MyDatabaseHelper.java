@@ -1,5 +1,6 @@
 package com.example.recettes_mobile;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -175,7 +176,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void UpdateRecette(int recetteId, String title, String description, int personnes, String times, byte[] image) {
+    void UpdateRecette(int recetteId, String title, String description, int personnes,String ingrediants,String etape, String times, byte[] image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Recette_Title, title);
@@ -183,6 +184,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         values.put(Recette_PERSONNES, personnes);
         values.put(Recette_TIMES, times);
         values.put(Recette_Image, image);
+        values.put(Recette_Ingrediants, ingrediants);
+        values.put(Recette_Etape, etape);
         int result = db.update(TABLE_Recettes, values, Recette_ID + " = ?", new String[]{String.valueOf(recetteId)});
         db.close();
         if (result > 0) {
@@ -195,7 +198,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getRecettesByUserId(int userId) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] projection = {Recette_ID, Recette_Title, Recette_Description, Recette_PERSONNES, Recette_TIMES};
+        String[] projection = {Recette_ID,Recette_Title, Recette_PERSONNES, Recette_TIMES};
 
         String selection = Recette_User_ID + " = ?";
         String[] selectionArgs = {String.valueOf(userId)};
@@ -209,5 +212,31 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 null,
                 null
         );
+    }
+
+    public byte[] getRecetteImage(int recetteId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] projection = {Recette_Image};
+
+        String selection = Recette_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(recetteId)};
+
+        Cursor cursor = db.query(
+                TABLE_Recettes,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex(Recette_Image));
+            cursor.close();
+            return image;
+        } else {
+            return null; // or a default image
+        }
     }
 }

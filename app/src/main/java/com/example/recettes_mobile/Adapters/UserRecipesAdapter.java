@@ -14,15 +14,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recettes_mobile.MyDatabaseHelper;
 import com.example.recettes_mobile.R;
+
+import java.util.Random;
 
 public class UserRecipesAdapter extends RecyclerView.Adapter<UserRecipesViewHolder> {
     private Context context;
     private Cursor cursor;
+    private MyDatabaseHelper dbHelper;
 
     public UserRecipesAdapter(Context context, Cursor cursor) {
         this.context = context;
         this.cursor = cursor;
+        this.dbHelper = new MyDatabaseHelper(context);
     }
 
     @NonNull
@@ -35,23 +40,26 @@ public class UserRecipesAdapter extends RecyclerView.Adapter<UserRecipesViewHold
     @Override
     public void onBindViewHolder(@NonNull UserRecipesViewHolder holder, int position) {
         if (cursor.moveToPosition(position)) {
-            @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("recette_title"));
-            @SuppressLint("Range") String servings = cursor.getString(cursor.getColumnIndex("recette_personnes")) + " Personnes";
-            @SuppressLint("Range") String time = cursor.getString(cursor.getColumnIndex("recette_times"));
-            @SuppressLint("Range") byte[] imageBytes = cursor.getBlob(cursor.getColumnIndex("recette_image"));
+            @SuppressLint("Range") int recetteId = cursor.getInt(cursor.getColumnIndex(MyDatabaseHelper.Recette_ID));
+            @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex(MyDatabaseHelper.Recette_Title));
+            @SuppressLint("Range") String servings = cursor.getString(cursor.getColumnIndex(MyDatabaseHelper.Recette_PERSONNES)) + " Personnes";
+            @SuppressLint("Range") String time = cursor.getString(cursor.getColumnIndex(MyDatabaseHelper.Recette_TIMES));
 
             holder.title.setText(title);
             holder.servings.setText(servings);
             holder.time.setText(time);
 
-            if (imageBytes != null) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                holder.imageFood.setImageBitmap(bitmap);
-            } else {
-                holder.imageFood.setImageResource(R.drawable.baseline_error); // Replace with a placeholder image
-            }
+            new Thread(() -> {
+                byte[] imageBytes = dbHelper.getRecetteImage(recetteId);
+                if (imageBytes != null) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                    holder.imageFood.post(() -> holder.imageFood.setImageBitmap(bitmap));
+                } else {
+                    holder.imageFood.post(() -> holder.imageFood.setImageResource(R.drawable.baseline_error)); // Replace with a placeholder image
+                }
+            }).start();
 
-            holder.likes.setText("Likes: " + getLikes(title)); // Assuming you have a method to get likes
+            holder.likes.setText("Likes: " + getLikes(title));
         }
     }
 
@@ -61,8 +69,8 @@ public class UserRecipesAdapter extends RecyclerView.Adapter<UserRecipesViewHold
     }
 
     private int getLikes(String title) {
-        // This is a placeholder method. Replace with actual logic to get likes.
-        return 0;
+        Random random = new Random();
+        return random.nextInt(10) + 1;
     }
 }
 class UserRecipesViewHolder extends RecyclerView.ViewHolder {

@@ -109,8 +109,11 @@ public class Recettes_Add_User extends Fragment {
         if (title.isEmpty() || description.isEmpty() || times.isEmpty() || personnes <= 0) {
             Toast.makeText(getActivity(), "Please fill all fields", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getActivity(), "Recettes Add", Toast.LENGTH_SHORT).show();
-            replaceFragement(new ProfileFragment());
+            Bundle bundle = new Bundle();
+            bundle.putInt("userId", connectedUserId);
+            RecettesUserFragment recettesUserFragment = new RecettesUserFragment();
+            recettesUserFragment.setArguments(bundle);
+            replaceFragement(recettesUserFragment);
             myDB.AddRecette(title, description, personnes, times,ingredients,etapes, connectedUserId, recetteImage);
         }
     }
