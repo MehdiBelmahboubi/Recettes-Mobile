@@ -43,11 +43,12 @@ public class RecettesUserFragment extends Fragment {
         if (getArguments() != null) {
             connectedUserId = getArguments().getInt("userId", -1);
         }
+        boolean userConnected = true;
 
         dbHelper = new MyDatabaseHelper(getContext());
         cursor = dbHelper.getRecettesByUserId(connectedUserId);
 
-        adapter = new UserRecipesAdapter(getContext(), cursor);
+        adapter = new UserRecipesAdapter(getContext(), cursor,userConnected);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 

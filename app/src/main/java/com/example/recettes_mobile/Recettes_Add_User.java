@@ -51,7 +51,6 @@ public class Recettes_Add_User extends Fragment {
 
         if (getArguments() != null) {
             connectedUserId = getArguments().getInt("userId", -1);
-            System.out.println(connectedUserId);
         }
 
         imageRecette.setOnClickListener(new View.OnClickListener() {

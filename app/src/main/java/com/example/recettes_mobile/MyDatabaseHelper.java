@@ -195,10 +195,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void deleteRecette(int recetteId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_Recettes, Recette_ID + " = ?", new String[]{String.valueOf(recetteId)});
+        Toast.makeText(context, "Recettes Deleted", Toast.LENGTH_SHORT).show();
+        db.close();
+    }
+
 
     public Cursor getRecettesByUserId(int userId) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] projection = {Recette_ID,Recette_Title, Recette_PERSONNES, Recette_TIMES};
+        String[] projection = {Recette_ID,Recette_Title,Recette_Description, Recette_PERSONNES, Recette_TIMES,Recette_Ingrediants,Recette_Etape,Recette_User_ID};
 
         String selection = Recette_User_ID + " = ?";
         String[] selectionArgs = {String.valueOf(userId)};
@@ -208,6 +215,22 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 projection,
                 selection,
                 selectionArgs,
+                null,
+                null,
+                null
+        );
+    }
+
+    public Cursor getAllRecettes() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] projection = {Recette_ID,Recette_Title,Recette_Description, Recette_PERSONNES, Recette_TIMES,Recette_Ingrediants,Recette_Etape,Recette_User_ID};
+
+
+        return db.query(
+                TABLE_Recettes,
+                projection,
+                null,
+                null,
                 null,
                 null,
                 null

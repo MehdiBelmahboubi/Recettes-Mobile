@@ -3,6 +3,7 @@ package com.example.recettes_mobile;
 import static com.example.recettes_mobile.MyDatabaseHelper.User_Email;
 import static com.example.recettes_mobile.MyDatabaseHelper.User_NAME;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -18,7 +19,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class ProfileFragment extends Fragment {
-    TextView editProfile,RecettesText,userTitle,userName,userEmail;
+    TextView editProfile,RecettesText,userTitle,userName,userEmail,logout;
 
     int connectedUserId = -1;
     @Override
@@ -36,6 +37,7 @@ public class ProfileFragment extends Fragment {
         userTitle = view.findViewById(R.id.userTitle);
         userName = view.findViewById(R.id.usernameText);
         userEmail = view.findViewById(R.id.UserEmail);
+        logout = view.findViewById(R.id.logout);
 
         if (getArguments() != null) {
             connectedUserId = getArguments().getInt("userId", -1);
@@ -64,6 +66,17 @@ public class ProfileFragment extends Fragment {
                 RecettesUserFragment recettesUserFragment = new RecettesUserFragment();
                 recettesUserFragment.setArguments(bundle);
                 replaceFragement(recettesUserFragment);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                connectedUserId=-1;
+                replaceFragement(new ConnectionFragment());
+                Intent intent = new Intent(getActivity(),MainActivity.class);
+                intent.putExtra("userId",connectedUserId);
+                startActivity(intent);
             }
         });
     }
