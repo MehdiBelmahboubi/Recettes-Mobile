@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Recettes_Users"
+        android:title="Users Recettes"
+        android:icon="@drawable/ic_users_recipes"/>
+    <item android:id="@+id/recipes"
+        android:title="Api Recettes"
+        android:icon="@drawable/ic_menu_book"/>
+    <item android:id="@+id/recherche"
+        android:title="Recherche"
+        android:icon="@drawable/ic_search_24"/>
+    <item android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_person"/>
+</menu>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/TextImporterPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Importer une photo"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <ImageView
+            android:id="@+id/imageRecette"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#D3D3D3"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Photo de la recette"/>
+
+        <TextView
+            android:id="@+id/TextTitreRecette"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titre de la recette"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextTitreRecette"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez le titre de la recette"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/TextDescRecette"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description de la recette"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextDescriptionRecette"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez la description de la recette"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/TextTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temps Preparation"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextTimes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez la description de la recette"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/TextPersonne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre de Personnes"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextPersonne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez la description de la recette"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/TextIngredientsRecette"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingrédients"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextIngredientsRecette"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez les ingrédients"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <TextView
+            android:id="@+id/TextEtapeRecette"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Étapes"
+            android:textColor="#429E58"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextEtapeRecette"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez les étapes"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#429E58"/>
+
+        <Button
+            android:id="@+id/buttonAjouterRecette"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter"
+            android:layout_gravity="center"
+            android:backgroundTint="#429E58"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</ScrollView>

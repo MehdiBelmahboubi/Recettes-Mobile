@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/liner_ll"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Account Settings"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/black" />
+
+    <TextView
+             android:id="@+id/logout"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Logout"
+             android:textColor="#429E58"
+             android:layout_alignParentRight="true"
+             android:textStyle="normal"
+             android:textSize="15dp" />
+
+</LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#429E58"
+        android:layout_below="@id/liner_ll"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:layout_marginTop="70dp">
+
+        <ImageView
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:src="@drawable/avatar"
+        android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/userTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#429E58"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#429E58"
+            android:layout_below="@id/liner_ll"
+            android:layout_marginTop="20dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="275dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:id="@+id/liner_ll1"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_person"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/usernameText"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:textColor="#6C6F6D"
+            android:textSize="18dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.588dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/liner_ll1">
+
+    </View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="335dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:id="@+id/liner_ll2"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_email" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginLeft="11dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/UserEmail"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="67dp"
+            android:textColor="#6C6F6D"
+            android:textSize="18dp"
+            android:textStyle="bold">
+        </TextView>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:layout_below="@id/liner_ll2"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/darker_gray">
+
+    </View>
+
+    <LinearLayout
+        android:id="@+id/liner_ll4"
+        android:layout_width="match_parent"
+        android:layout_height="251dp"
+        android:layout_below="@+id/liner_ll2"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/editText"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_btn"
+            android:drawableLeft="@drawable/ic_edit"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:text="Edit Profile"
+            android:textColor="#429E58"
+            android:textSize="18dp"></TextView>
+
+        <TextView
+            android:id="@+id/RecettesText"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_btn"
+            android:drawableLeft="@drawable/ic_menu_book"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:text="Mes Recettes"
+            android:textColor="#429E58"
+            android:textSize="18dp"></TextView>
+
+    </LinearLayout>
+
+</RelativeLayout>
